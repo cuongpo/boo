@@ -1,0 +1,1707 @@
+.pricing {
+    padding: 6rem 0;
+    background-color: #f8f9ff;
+}
+
+.pricing h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2d2d2d;
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.pricing-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card.digital {
+    background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+.pricing-card.digital .card-badge {
+    background: #4A90E2;
+}
+
+.pricing-card.digital .price {
+    color: #4A90E2;
+}
+
+.pricing-card.featured {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+    border: 2px solid #6C63FF;
+    transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.card-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6C63FF;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.savings-badge {
+    display: inline-block;
+    background: #ff6b6b;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.pricing-card h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1.8rem;
+    color: #2d2d2d;
+    margin: 2rem 0 1rem;
+}
+
+.pricing-card .price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #6C63FF;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.pricing-card li {
+    color: #666;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+.pricing-card li:last-child {
+    border-bottom: none;
+}
+
+.pricing-card .cta-btn {
+    background: #6C63FF;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.pricing-card.digital .cta-btn {
+    background: #4A90E2;
+}
+
+.pricing-card.digital .cta-btn:hover {
+    background: #357abd;
+}
+
+.pricing-card .cta-btn:hover {
+    background: #5b52ff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .pricing-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .pricing-card.featured {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing {
+        padding: 4rem 0;
+    }
+
+    .pricing h2 {
+        font-size: 2.4rem;
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
+    }
+
+    .pricing-cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        gap: 3rem;
+    }
+
+    .pricing-card.featured {
+        grid-column: span 1;
+    }
+
+    .pricing-card {
+        padding: 2rem;
+    }
+
+    .card-badge {
+        font-size: 0.85rem;
+        padding: 0.4rem 1.2rem;
+    }
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 6rem 5%;
+    background: #fff;
+}
+
+.testimonials-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials h2 {
+    font-size: 2.8rem;
+    color: #2d2d2d;
+    margin-bottom: 4rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-align: center;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-preview {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+    background: #f5f5f5;
+}
+
+.video-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(255,255,255,0.95);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #6C63FF;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    background: white;
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+}
+
+.review-content {
+    padding: 2rem;
+}
+
+.review-content p {
+    font-size: 1.1rem;
+    color: #2d2d2d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.review-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviewer span {
+    color: #666;
+    font-size: 1rem;
+}
+
+.reviewer img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .reviews-grid {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .testimonials h2 {
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    
+    .testimonials {
+        padding: 4rem 5%;
+    }
+    
+    .review-content {
+        padding: 1.5rem;
+    }
+    
+    .review-content p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .testimonials h2 {
+        font-size: 2rem;
+    }
+    
+    .video-preview {
+        padding-top: 66.67%; /* 3:2 Aspect Ratio for mobile */
+    }
+}
+
+/* Simple Fun Section */
+.simple-fun {
+    padding: 6rem 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.simple-fun h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.step {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #6C63FF, #8983ff);
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 1rem;
+    background: #f8f9ff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.step h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 1rem 0;
+}
+
+.step p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .simple-fun {
+        padding: 4rem 0;
+    }
+
+    .simple-fun h2 {
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .step {
+        padding: 2rem;
+    }
+
+    .step-icon {
+        font-size: 2.5rem;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+    }
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #6c63ff;
+}
+
+/* Buttons */
+.cta-btn {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.cta-btn:hover {
+    background-color: #5b52e5;
+}
+
+.login-btn {
+    border: 2px solid #6c63ff;
+    padding: 0.6rem 1.3rem;
+    border-radius: 25px;
+    color: #6c63ff !important;
+}
+
+/* Hero Section */
+.hero {
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, #f0f3ff 0%, #ffffff 100%);
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.hero-text {
+    padding-right: 2rem;
+}
+
+.hero-text h1 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 3rem;
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.feature .icon {
+    font-size: 1.3rem;
+}
+
+.feature strong {
+    color: #2d2d2d;
+    font-weight: 600;
+}
+
+.feature span {
+    line-height: 1.5;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.button.primary {
+    background-color: #6C63FF;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.button.primary:hover {
+    background-color: #5b52ff;
+}
+
+.price {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        order: 1;
+    }
+
+    .hero-image {
+        order: 2;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero-features {
+        align-items: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+
+    .feature {
+        font-size: 1rem;
+    }
+}
+
+/* Features Section */
+.features {
+    display: none;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, #f0f3ff 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.pricing h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border: 2px solid #6c63ff;
+}
+
+.pricing-card h3 {
+    font-family: 'Mali', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #6c63ff;
+    margin-bottom: 2rem;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.pricing-card li {
+    margin-bottom: 0.8rem;
+    color: #666;
+}
+
+/* Book Examples Slider */
+.book-examples {
+    padding: 4rem 0;
+    background: #fff;
+    overflow: hidden;
+}
+
+.book-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.book-track {
+    display: flex;
+    width: calc(250px * 8); /* 8 items total (4 original + 4 duplicate) */
+    animation: slideLoop 20s linear infinite;
+}
+
+.book-item {
+    flex: 0 0 250px;
+    padding: 0 15px;
+}
+
+.book-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-cover:hover {
+    transform: translateY(-10px);
+}
+
+@keyframes slideLoop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 4)); /* Move by width of original set */
+    }
+}
+
+/* Pause animation on hover */
+.book-slider:hover .book-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .book-track {
+        width: calc(200px * 8);
+    }
+    
+    .book-item {
+        flex: 0 0 200px;
+        padding: 0 10px;
+    }
+    
+    @keyframes slideLoop {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-200px * 4));
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .book-track {
+        width: calc(150px * 8);
+    }
+    
+    .book-item {
+        flex: 0 0 150px;
+        padding: 0 8px;
+    }
+    
+    @keyframes slideLoop {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-150px * 4));
+        }
+    }
+}
+
+/* Book Examples Section */
+.book-examples {
+    padding: 4rem 5%;
+    background-color: #fff;
+}
+
+.book-slider {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.book-track {
+    display: flex;
+    gap: 2rem;
+    animation: slide 60s linear infinite;
+    width: max-content;
+}
+
+.book-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 2));
+    }
+}
+
+.slide {
+    flex: 0 0 auto;
+    width: 300px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.book-preview {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.book-preview img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.photo-preview {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.photo-preview img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.photo-preview span {
+    font-family: 'Mali', cursive;
+    font-weight: 600;
+    color: #333;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    pointer-events: none;
+}
+
+.prev-btn,
+.next-btn {
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-size: 1.2rem;
+    color: #333;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .book-slider {
+        gap: 1rem;
+    }
+    
+    .slide {
+        width: 250px;
+    }
+    
+    .book-preview img {
+        height: 350px;
+    }
+}
+
+/* Child Star Section */
+.child-star {
+    padding: 5rem 5%;
+    background: linear-gradient(135deg, #f0f3ff 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.child-star-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.child-star .text-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.child-star h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #2d2d2d;
+}
+
+.child-star p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.child-star .image-content {
+    flex: 1;
+    position: relative;
+}
+
+.main-illustration {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.main-illustration img {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+    filter: contrast(1);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 15%;
+    left: -10%;
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border: 4px solid white;
+    transform: rotate(-5deg);
+}
+
+.photo-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-hobbies {
+    position: absolute;
+    bottom: 10%;
+    right: -5%;
+    background: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.character-hobbies span {
+    font-family: 'Mali', cursive;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 968px) {
+    .child-star-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .child-star h2 {
+        font-size: 2.5rem;
+    }
+
+    .child-star .text-content {
+        max-width: 100%;
+    }
+
+    .main-illustration {
+        max-width: 400px;
+    }
+
+    .photo-overlay {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Story Made Section */
+.story-made {
+    padding: 5rem 5%;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.story-made-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.story-made .image-content {
+    flex: 1;
+    position: relative;
+}
+
+.device-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.device-mockup .main-image {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+    filter: contrast(1);
+}
+
+.app-screens {
+    position: absolute;
+    right: -50px;
+    bottom: -30px;
+    width: 200px;
+}
+
+.app-screens img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    border: 4px solid white;
+}
+
+.screen-1 {
+    transform: rotate(-5deg);
+}
+
+.screen-2 {
+    transform: rotate(5deg);
+}
+
+.story-made .text-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.story-made h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #2d2d2d;
+}
+
+.story-made p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 968px) {
+    .story-made-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .story-made h2 {
+        font-size: 2.5rem;
+    }
+
+    .story-made .text-content {
+        max-width: 100%;
+    }
+
+    .device-mockup {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .app-screens {
+        right: -20px;
+        bottom: -20px;
+        width: 150px;
+    }
+}
+
+/* Gift Treasure Section */
+.gift-treasure {
+    padding: 5rem 5%;
+    background: linear-gradient(135deg, #f0f3ff 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.gift-treasure-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.gift-treasure .text-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.gift-treasure h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #2d2d2d;
+}
+
+.gift-treasure p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.gift-treasure .image-content {
+    flex: 1;
+    position: relative;
+}
+
+.book-showcase {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+}
+
+.book-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.main-book {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.hands-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.reading-hands {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.book-stack {
+    position: absolute;
+    top: -30px;
+    right: -40px;
+    width: 150px;
+    z-index: 1;
+    transform: rotate(15deg);
+}
+
+.stack-image {
+    width: 100%;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+}
+
+@media (max-width: 968px) {
+    .gift-treasure-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .gift-treasure h2 {
+        font-size: 2.5rem;
+    }
+
+    .gift-treasure .text-content {
+        max-width: 100%;
+    }
+
+    .book-showcase {
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .book-stack {
+        width: 100px;
+        top: -20px;
+        right: -20px;
+    }
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 6rem 5%;
+    background: #fff;
+}
+
+.cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.cta-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.book-grid {
+    width: 100%;
+    max-width: 500px;
+}
+
+.book-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-grid img:hover {
+    transform: translateY(-5px);
+}
+
+.cta-text {
+    text-align: left;
+    max-width: 450px;
+}
+
+.cta-text h2 {
+    font-size: 3.5rem;
+    color: #2d2d2d;
+    margin-bottom: 1.5rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    line-height: 1.2;
+}
+
+.cta-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-text .cta-btn {
+    display: inline-block;
+    background: #6C63FF;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cta-text .cta-btn:hover {
+    transform: translateY(-2px);
+    background: #5a52e0;
+}
+
+.cta-text .price-text {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .cta-content {
+        gap: 2rem;
+    }
+    
+    .cta-text h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 4rem 5%;
+    }
+    
+    .cta-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .cta-text {
+        margin: 0 auto;
+        text-align: center;
+        order: -1;
+    }
+    
+    .book-grid {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    .cta-text h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-grid {
+        max-width: 300px;
+    }
+    
+    .cta-text h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.footer-column h4 {
+    font-family: 'Mali', cursive;
+    margin-bottom: 1.5rem;
+}
+
+.footer-column a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 6rem;
+    }
+
+    .hero-content {
+        margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* FAQ Section */
+.faq {
+    padding: 5rem 5%;
+    background-color: #ffffff;
+}
+
+.faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq h2 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2d2d2d;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item summary {
+    padding: 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 2rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    transform: translateY(-50%) rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.faq-answer {
+    padding: 0 0 1.5rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9ff;
+    padding: 5rem 5% 2rem;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand {
+    margin-bottom: 2rem;
+}
+
+.footer-brand img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h3 {
+    color: #2d2d2d;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #6C63FF;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.legal-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.legal-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #6C63FF;
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .legal-links {
+        justify-content: center;
+    }
+
+    .footer-brand {
+        text-align: center;
+        margin: 0 auto 2rem;
+    }
+    
+    .footer-brand img {
+        width: 150px;
+    }
+    
+    .footer-brand p {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+
+    .faq h2 {
+        font-size: 2rem;
+    }
+}
