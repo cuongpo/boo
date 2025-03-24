@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boo Boo - Xem Trước Sách Truyện</title>
+    <meta name="description" content="Xem trước các trang sách truyện cá nhân hoá cho bé yêu của bạn.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Gudea:wght@400;700&family=Happy+Monkey&family=Londrina+Shadow&family=Mali:wght@500;600;700&family=Mansalva&family=Merriweather:wght@400;700&family=Mooli&family=Petrona:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Silkscreen:wght@400;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        
+        /* Book Viewer Styles */
+        .book-viewer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 0 0;
+            min-height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1rem;
+        }
+        
+        .book-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Mali', cursive;
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: 700;
+            padding-top: 1rem;
+        }
+        
+        .book-content {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .book-page {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .book-page.active {
+            display: block;
+        }
+        
+        .book-page img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-family: 'Mali', cursive;
+            color: #666;
+            font-size: 1.2rem;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        
+        .nav-button {
+            background: #6C63FF;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-button:hover {
+            background: #5b52ff;
+            transform: translateY(-2px);
+        }
+        
+        .nav-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .nav-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        .page-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 1.2rem;
+            color: #666;
+            min-width: 100px;
+        }
+        
+        .page-thumbnails {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 2rem;
+            max-width: 800px;
+        }
+        
+        .page-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .page-thumbnail.active {
+            border-color: #6C63FF;
+            transform: scale(1.1);
+        }
+        
+        .page-thumbnail:hover {
+            transform: scale(1.1);
+        }
+        
+        .page-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .book-cover {
+            position: relative;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .book-cover img {
+            width: 100%;
+            display: block;
+        }
+        
+        .start-reading {
+            background: #6C63FF;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+        
+        .start-reading:hover {
+            background: #5b52ff;
+            transform: translateY(-3px);
+        }
+        
+        .book-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            padding: 0 1rem;
+        }
+        
+        .book-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .book-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .book-navigation {
+                gap: 0.8rem;
+            }
+            
+            .nav-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-indicator {
+                font-size: 1rem;
+                min-width: 80px;
+            }
+            
+            .page-thumbnails {
+                gap: 8px;
+            }
+            
+            .page-thumbnail {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Boo Boo Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#pricing" data-i18n="nav_pricing">Bảng Giá</a>
+                <a href="example.html" class="active" data-i18n="nav_preview">Xem Trước Sách</a>
+                <a href="http://m.me/booboocomic" class="login-btn" target="_blank" data-i18n="nav_free_cover">Tạo thử trang bìa miễn phí</a>
+                <a href="http://m.me/booboocomic" class="cta-btn" target="_blank" data-i18n="nav_start">Bắt Đầu Ngay</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="book-viewer">
+            <div class="book-container">
+                <h2 class="book-title" data-i18n="book_title">Cuộc Phiêu Lưu Kỳ Thú</h2>
+                
+                <div class="book-intro">
+                    <p data-i18n="book_intro">Hãy tưởng tượng bé yêu của bạn là nhân vật chính trong cuộc phiêu lưu kỳ thú này. Mỗi trang sách là một kỷ niệm đáng nhớ!</p>
+                </div>
+                
+                <!-- Book Content -->
+                <div id="bookContent" class="book-content">
+                    <!-- Page 1 -->
+                    <div class="book-page active" data-page="1">
+                        <img src="assets/book_example/Group 1.png" alt="Trang sách 1">
+                        <div class="page-number">1</div>
+                    </div>
+                    
+                    <!-- Page 2 -->
+                    <div class="book-page" data-page="2">
+                        <img src="assets/book_example/Group 3.png" alt="Trang sách 2">
+                        <div class="page-number">2</div>
+                    </div>
+                    
+                    <!-- Page 3 -->
+                    <div class="book-page" data-page="3">
+                        <img src="assets/book_example/Group 4.png" alt="Trang sách 3">
+                        <div class="page-number">3</div>
+                    </div>
+                    
+                    <!-- Page 4 -->
+                    <div class="book-page" data-page="4">
+                        <img src="assets/book_example/Group 5.png" alt="Trang sách 4">
+                        <div class="page-number">4</div>
+                    </div>
+                    
+                    <!-- Page 5 -->
+                    <div class="book-page" data-page="5">
+                        <img src="assets/book_example/Group 7.png" alt="Trang sách 5">
+                        <div class="page-number">5</div>
+                    </div>
+                    
+                    <!-- Page 6 -->
+                    <div class="book-page" data-page="6">
+                        <img src="assets/book_example/Group 8.png" alt="Trang sách 6">
+                        <div class="page-number">6</div>
+                    </div>
+                    
+                    <!-- Page 7 -->
+                    <div class="book-page" data-page="7">
+                        <img src="assets/book_example/Group 9.png" alt="Trang sách 7">
+                        <div class="page-number">7</div>
+                    </div>
+                    
+                    <!-- Page 8 -->
+                    <div class="book-page" data-page="8">
+                        <img src="assets/book_example/Group 10.png" alt="Trang sách 8">
+                        <div class="page-number">8</div>
+                    </div>
+                    
+                    <!-- Page 9 -->
+                    <div class="book-page" data-page="9">
+                        <img src="assets/book_example/Group 11.png" alt="Trang sách 9">
+                        <div class="page-number">9</div>
+                    </div>
+                    
+                    <!-- Page 10 -->
+                    <div class="book-page" data-page="10">
+                        <img src="assets/book_example/Group 12.png" alt="Trang sách 10">
+                        <div class="page-number">10</div>
+                    </div>
+                    
+                    <!-- Page 11 -->
+                    <div class="book-page" data-page="11">
+                        <img src="assets/book_example/Group 13.png" alt="Trang sách 11">
+                        <div class="page-number">11</div>
+                    </div>
+                    
+                    <!-- Page 12 -->
+                    <div class="book-page" data-page="12">
+                        <img src="assets/book_example/Group 14.png" alt="Trang sách 12">
+                        <div class="page-number">12</div>
+                    </div>
+                    
+                    <!-- Page 13 -->
+                    <div class="book-page" data-page="13">
+                        <img src="assets/book_example/Group 15.png" alt="Trang sách 13">
+                        <div class="page-number">13</div>
+                    </div>
+                    
+                    <!-- Page 14 -->
+                    <div class="book-page" data-page="14">
+                        <img src="assets/book_example/Group 16.png" alt="Trang sách 14">
+                        <div class="page-number">14</div>
+                    </div>
+                    
+                    <!-- Page 15 -->
+                    <div class="book-page" data-page="15">
+                        <img src="assets/book_example/Group 17.png" alt="Trang sách 15">
+                        <div class="page-number">15</div>
+                    </div>
+                    
+                    <!-- Page 16 -->
+                    <div class="book-page" data-page="16">
+                        <img src="assets/book_example/Group 18.png" alt="Trang sách 16">
+                        <div class="page-number">16</div>
+                    </div>
+                    
+                    <!-- Navigation Controls -->
+                    <div class="book-navigation">
+                        <button id="prevPage" class="nav-button" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                            <span data-i18n="prev_page">Trước</span>
+                        </button>
+                        <div class="page-indicator">
+                            <span data-i18n="page_of">Trang</span> <span id="currentPage">1</span> <span data-i18n="of_pages">của</span> <span id="totalPages">16</span>
+                        </div>
+                        <button id="nextPage" class="nav-button">
+                            <span data-i18n="next_page">Tiếp</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Page Thumbnails -->
+                    <div class="page-thumbnails">
+                        <div class="page-thumbnail active" data-page="1">
+                            <img src="assets/book_example/Group 1.png" alt="Thumbnail 1">
+                        </div>
+                        <div class="page-thumbnail" data-page="2">
+                            <img src="assets/book_example/Group 3.png" alt="Thumbnail 2">
+                        </div>
+                        <div class="page-thumbnail" data-page="3">
+                            <img src="assets/book_example/Group 4.png" alt="Thumbnail 3">
+                        </div>
+                        <div class="page-thumbnail" data-page="4">
+                            <img src="assets/book_example/Group 5.png" alt="Thumbnail 4">
+                        </div>
+                        <div class="page-thumbnail" data-page="5">
+                            <img src="assets/book_example/Group 7.png" alt="Thumbnail 5">
+                        </div>
+                        <div class="page-thumbnail" data-page="6">
+                            <img src="assets/book_example/Group 8.png" alt="Thumbnail 6">
+                        </div>
+                        <div class="page-thumbnail" data-page="7">
+                            <img src="assets/book_example/Group 9.png" alt="Thumbnail 7">
+                        </div>
+                        <div class="page-thumbnail" data-page="8">
+                            <img src="assets/book_example/Group 10.png" alt="Thumbnail 8">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons" style="margin-top: 2rem;">
+                    <a href="http://m.me/booboocomic" class="nav-button" target="_blank" data-i18n="create_book">Tạo Sách Cho Bé</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Boo Boo">
+                    <p data-i18n="footer_tagline">Sách truyện cá nhân hoá cho bé yêu của bạn!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3 data-i18n="footer_about">Về Chúng Tôi</h3>
+                        <ul>
+                            <li><a href="#" data-i18n="footer_story">Câu chuyện của chúng tôi</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 data-i18n="footer_support">Hỗ Trợ Khách Hàng</h3>
+                        <ul>
+                            <li><a href="#" data-i18n="footer_account">Tài khoản của tôi</a></li>
+                            <li><a href="#" data-i18n="footer_contact">Liên hệ hỗ trợ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 data-i18n="footer_social">Mạng Xã Hội</h3>
+                        <ul>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">TikTok</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="#" data-i18n="footer_terms">Điều khoản sử dụng</a>
+                    <a href="#" data-i18n="footer_privacy">Chính sách bảo mật</a>
+                </div>
+                <p class="copyright"> <span data-i18n="footer_copyright">2025 Boo Boo</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+    <script src="language.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Book elements
+            const bookContent = document.getElementById('bookContent');
+            const prevPageBtn = document.getElementById('prevPage');
+            const nextPageBtn = document.getElementById('nextPage');
+            const currentPageSpan = document.getElementById('currentPage');
+            const totalPagesSpan = document.getElementById('totalPages');
+            const bookPages = document.querySelectorAll('.book-page');
+            const pageThumbnails = document.querySelectorAll('.page-thumbnail');
+            
+            // Set total pages
+            const totalPages = bookPages.length;
+            totalPagesSpan.textContent = totalPages;
+            
+            // Current page tracker
+            let currentPage = 1;
+            
+            // Function to update page display
+            function showPage(pageNumber) {
+                // Hide all pages
+                bookPages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show current page
+                const pageToShow = document.querySelector(`.book-page[data-page="${pageNumber}"]`);
+                if (pageToShow) {
+                    pageToShow.classList.add('active');
+                }
+                
+                // Update page indicator
+                currentPageSpan.textContent = pageNumber;
+                
+                // Update thumbnails
+                pageThumbnails.forEach(thumb => {
+                    thumb.classList.remove('active');
+                    if (parseInt(thumb.dataset.page) === pageNumber) {
+                        thumb.classList.add('active');
+                    }
+                });
+                
+                // Update navigation buttons
+                prevPageBtn.disabled = pageNumber === 1;
+                nextPageBtn.disabled = pageNumber === totalPages;
+            }
+            
+            // Previous page button
+            prevPageBtn.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            });
+            
+            // Next page button
+            nextPageBtn.addEventListener('click', function() {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            });
+            
+            // Thumbnail navigation
+            pageThumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    currentPage = parseInt(this.dataset.page);
+                    showPage(currentPage);
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft' && currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            });
+            
+            // Swipe navigation for touch devices
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            bookContent.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+            
+            bookContent.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+            
+            function handleSwipe() {
+                const swipeThreshold = 50; // Minimum distance for swipe
+                
+                if (touchEndX < touchStartX - swipeThreshold && currentPage < totalPages) {
+                    // Swipe left - next page
+                    currentPage++;
+                    showPage(currentPage);
+                } else if (touchEndX > touchStartX + swipeThreshold && currentPage > 1) {
+                    // Swipe right - previous page
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            }
+            
+            // Initialize with first page
+            showPage(currentPage);
+        });
+    </script>
+</body>
+</html>
